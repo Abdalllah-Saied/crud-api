@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\UserController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::prefix('users')
        Route::put('/{user}',[UserController::class,'update'])->name('update');
        Route::delete('/{user}',[UserController::class,'destroy'])->name('destroy');
     });
+Route::get("category/{id?}",[CategoryController::class,'getCategory']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
